@@ -8,7 +8,7 @@
 
         function AddPressed() {
             // taskの文字列を取得
-            const newTask = document.getElementById('new-task');
+            const newTask = document.getElementById('newTask');
             tasks.push(newTask.value);
             // taskの文字列を表示
             draw()
@@ -23,7 +23,7 @@
             let result = ""
             for (let i = 0; i < tasks.length; i++) {
                 result += "<tr>\n" + 
-                          `<td id="taskElement">` + tasks[i] + "</td>\n" + 
+                          `<td id="taskElement">${tasks[i]}</td>\n` + 
                           `<td><button onclick="deleteTask(${i})">Delete</button></td>\n` + 
                           "</tr>";
             }
@@ -35,30 +35,26 @@
 
 <body>
     <!-- ヘッダー -->
-    <header style="background-color: #f0f0f0; padding: 5px">
+    <header style="background-color: #e6e6e6; padding: 5px">
         <h1 style="font-size: 16px; color: #000000;">Todo List - Demo</h1>
-        <div>
-            <div style="padding: 0; display: flex; gap: 15px;">
-            </div>
-        </div>
+        <a href="https://github.com/chrom9103/PiPi_HTML-CSS-demo" 
+           style="text-decoration: none; color: #218dff; font-size: 12px; font-weight: bold">
+        HTML/CSS講習会資料
+        </a>
     </header>
+    <!-- メインコンテンツ -->
     <div id="main">
-        <a href="./help"><img id="info_img" src="datas\info_mark.png" alt="タイトル画像"></a>
-        <h1>Hello, World!</h1>
-        <p>This is a simple HTML page.</p>
-        <img id="main_img" src="datas\dino.png" alt="タイトル画像">
-
         <div id="todo-list">
             <h2>Todo List</h2>
-            <input id="new-task" type="text">
-            <button id="addButton" onclick="AddPressed()">Add Task</button>
+            <div class="input-area">
+                <input id="newTask" type="text" placeholder="Enter a new task">
+                <button id="addButton" onclick="AddPressed()">Add Task</button>
+            </div>
             <table id="result">
                 <!-- Tasks will be added here -->
             </table>
         </div>
     </div>
-
-    
     
 </body>
 
