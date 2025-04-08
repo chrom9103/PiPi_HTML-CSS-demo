@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        let tasks = [];
+
+        function AddPressed() {
+            // taskの文字列を取得
+            const newTask = document.getElementById('new-task');
+            tasks.push(newTask.value);
+            // taskの文字列を表示
+            draw()
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            draw()
+        }
+
+        function draw(){
+            let result = ""
+            for (let i = 0; i < tasks.length; i++) {
+                result += "<tr>\n" + 
+                          `<td id="taskElement">` + tasks[i] + "</td>\n" + 
+                          `<td><button onclick="deleteTask(${i})">Delete</button></td>\n` + 
+                          "</tr>";
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header style="background-color: #f0f0f0; padding: 5px">
+        <h1 style="font-size: 16px; color: #000000;">Todo List - Demo</h1>
+        <div>
+            <div style="padding: 0; display: flex; gap: 15px;">
+            </div>
+        </div>
+    </header>
+    <div id="main">
+        <a href="./help"><img id="info_img" src="datas\info_mark.png" alt="タイトル画像"></a>
+        <h1>Hello, World!</h1>
+        <p>This is a simple HTML page.</p>
+        <img id="main_img" src="datas\dino.png" alt="タイトル画像">
+
+        <div id="todo-list">
+            <h2>Todo List</h2>
+            <input id="new-task" type="text">
+            <button id="addButton" onclick="AddPressed()">Add Task</button>
+            <table id="result">
+                <!-- Tasks will be added here -->
+            </table>
+        </div>
+    </div>
+
+    
+    
+</body>
+
+</html>
